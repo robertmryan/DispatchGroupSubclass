@@ -8,8 +8,8 @@ Also note that in the debug “Variables View”, that my `group` variable is re
 
 I am familiar with the legacy of GCD API and types, and assume that it cannot easily be refactored to support subclassing. I would therefore suggest:
 
-* Declare it to be `final` to make it clear that it cannot be subclassed (assuming, of course, that this doesn't introduce other issues).
-* At the very least, update the documentation to make it explicit that `DispatchGroup` (and other GCD objects that suffer from the same limitation) cannot be subclassed.
+* Declare `DispatchGroup` to be `final`, rather than `open`, to have the compiler prevent attempts to subclass it.
+* Update the documentation for `DispatchGroup` to make it clear that it cannot be subclassed.
 
 ---
 
