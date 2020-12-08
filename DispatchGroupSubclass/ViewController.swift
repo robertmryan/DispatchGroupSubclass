@@ -12,15 +12,19 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+        let group = MyGroup()
 
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
+        DispatchQueue.main.async(group: group) {
+            print("starting")
+            Thread.sleep(forTimeInterval: 1)
+            print("done")
         }
-    }
 
+        group.notify(queue: .main) {
+            print("notify")
+        }
+
+        group.foo()
+    }
 
 }
-
